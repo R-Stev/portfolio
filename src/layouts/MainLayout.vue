@@ -104,6 +104,9 @@ const linksList = [
 </script>
 
 <style>
+.q-drawer {
+  background: none;
+}
 .q-item__section--avatar {
   min-width: 48px;
 }
