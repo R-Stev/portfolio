@@ -1,11 +1,16 @@
 <template>
-  <q-page  class="flex flex-center">
-    projects
+  <q-page id="projComp">
+    <ProjectCarousel />
   </q-page>
 </template>
 
-<script>
-export default {
-  // name: 'PageName',
-}
+<script setup>
+import ProjectCarousel from 'components/ProjectCarousel.vue';
 </script>
+
+<style>
+#projComp {
+  margin-left: calc(50vw - 270px);
+  margin-right: calc(50vw - 270px);
+}
+</style>
