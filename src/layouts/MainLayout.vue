@@ -14,6 +14,7 @@
 
     <q-drawer id="sidebar" class="gt-sm" behavior="desktop" persistent
       show-if-above overlay no-swipe-open no-swipe-close no-swipe-backdrop
+      width="115"
       >
       <q-list>
         <q-item id="homeBtn" class="transition" to="/" exact @click="goHome()">
@@ -47,7 +48,7 @@
       <q-icon name="fa-solid fa-caret-left"  />
     </div>
 
-    <q-page-container>
+    <q-page-container id="pageContainer">
       <router-view />
     </q-page-container>
     <q-footer class="lt-md">
@@ -104,20 +105,14 @@ const linksList = [
 </script>
 
 <style>
-.q-drawer {
-  background: none;
+.q-item {
+  padding: 8px 12px;
 }
 .q-item__section--avatar {
-  min-width: 48px;
+  min-width: 36px;
 }
 .q-item__section--side {
   padding-right: 8px;
-}
-#marker {
-  position:absolute;
-  top: calc(50% - 10.5px);
-  left: 122px;
-  z-index: 3001;
 }
 #sidebar {
   display: flex;
@@ -128,5 +123,15 @@ const linksList = [
 }
 .transition {
   transition: margin 0.5s linear;
+}
+#marker {
+  position:absolute;
+  top: calc(50% - 10.5px);
+  left: 105px;
+  z-index: 3001;
+}
+#pageContainer {
+  margin-left: 115px;
+  margin-right: 115px;
 }
 </style>
