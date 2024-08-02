@@ -12,9 +12,8 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer id="sidebar" class="gt-sm" behavior="desktop" persistent
-      show-if-above overlay no-swipe-open no-swipe-close no-swipe-backdrop
-      width="115"
+    <q-drawer id="sidebar" :width="115" :breakpoint="1024"
+      show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
       >
       <q-list>
         <q-item id="homeBtn" class="transition" to="/" exact @click="goHome()">
@@ -130,8 +129,9 @@ const linksList = [
   left: 105px;
   z-index: 3001;
 }
-#pageContainer {
-  margin-left: 115px;
-  margin-right: 115px;
+@media only screen and (min-width: 1024px) {
+  #pageContainer {
+    padding-right: 115px;
+  }
 }
 </style>
