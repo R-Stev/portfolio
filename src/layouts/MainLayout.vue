@@ -12,7 +12,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer id="sidebar" :width="115" :breakpoint="1024"
+    <q-drawer id="sidebar"  class="gt-sm" :width="115"
       show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
       >
       <q-list>
