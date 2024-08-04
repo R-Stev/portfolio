@@ -68,6 +68,10 @@
 import { ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
 import NavItem from 'components/NavItem.vue'
+import {useRoute, useRouter} from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 
 defineOptions({
   name: 'MainLayout'
@@ -88,6 +92,32 @@ function goProjects() {
   document.getElementById("homeBtn").style.marginTop='100px';
   document.getElementById("projectsBtn").style.marginBottom = '96px';
 }
+
+window.addEventListener(
+  "keydown", (event) => {
+    const keyName = event.key;
+    if (["ArrowDown", "PageDown"].includes(keyName)) {
+      if(route.fullPath == '/') {
+        router.push({path: '/about'});
+        goAbout();
+      }
+      else if(route.fullPath == '/about') {
+        router.push({path: '/projects'});
+        goProjects();
+      }
+    }
+    if (["ArrowUp", "PageUp"].includes(keyName)) {
+      if(route.fullPath == '/about') {
+        router.push({path: '/'});
+        goHome();
+      }
+      else if(route.fullPath == '/projects') {
+        router.push({path: '/about'});
+        goAbout();
+      }
+    }
+  }, false
+)
 
 const linksList = [
   {

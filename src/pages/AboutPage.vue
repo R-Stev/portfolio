@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <Splide ref="splide" :options="options" aria-label="My Favorite Images">
+    <Splide ref="splide" :options="options" aria-label="Projects">
       <ProjectItem v-for="item in projectList" :key="item.image" v-bind="item" />
     </Splide>
   </q-page>
@@ -26,8 +26,10 @@ export default defineComponent({
       perMove   : 1,
       // breakpoints: {},
       // padding: 15,
-      heightRatio: 0.6,
-      pagination: false
+      heightRatio: 0.625 * 2/3,
+      pagination: false,
+      focus: 'center',
+      keyboard: 'global',
       // gap   : '1rem',
     };
     const projectList = [
