@@ -3,7 +3,7 @@
     <q-header class="lt-md">
       <q-toolbar>
         <q-list>
-        <EssentialLink
+        <ExternalLink
             v-for="link in linksList"
             :key="link.title"
             v-bind="link"
@@ -36,7 +36,7 @@
         </q-item>
         <q-separator />
 
-        <EssentialLink
+        <ExternalLink
           v-for="link in linksList"
           :key="link.title"
           v-bind="link"
@@ -53,7 +53,7 @@
     <q-footer class="lt-md">
       <q-toolbar>
         <q-space ></q-space>
-        <EssentialLink
+        <ExternalLink
             v-for="link in linksList"
             :key="link.title"
             v-bind="link"
@@ -66,7 +66,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+import ExternalLink from 'components/ExternalLink.vue'
 import NavItem from 'components/NavItem.vue'
 import {useRoute, useRouter} from 'vue-router'
 

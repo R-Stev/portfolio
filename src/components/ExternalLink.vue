@@ -17,7 +17,7 @@
 
 <script setup>
 defineOptions({
-  name: 'EssentialLink'
+  name: 'ExternalLink'
 })
 
 const props = defineProps({
