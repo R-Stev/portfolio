@@ -6,7 +6,7 @@
     :href="props.link"
   >
     <q-item-section avatar >
-      <q-icon :name="props.icon" color="green" />
+      <q-icon :name="props.icon" />
     </q-item-section>
 
     <q-item-section>
