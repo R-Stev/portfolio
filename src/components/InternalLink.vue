@@ -1,5 +1,5 @@
 <template>
-    <q-item :id="`${props.name.toLowerCase()}Btn`" class="transition" :to="props.route"
+    <q-item :to="props.route"
     exact @click="$emit('changeRoute', props.name)">
         <q-item-section avatar ></q-item-section>
         <q-item-section>

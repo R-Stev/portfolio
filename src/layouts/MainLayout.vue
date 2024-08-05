@@ -13,6 +13,7 @@
       :style="`background: ${$q.dark.isActive ? '#101010' : '#efefef'};`"
       >
       <q-list>
+        <div id="topSidebarSpace" class="transition"></div>
         <InternalLink v-for="link in internalList" :key="link.title" v-bind="link"
         @changeRoute="handleChangeRoute" />
         <q-separator />
@@ -23,6 +24,7 @@
           v-bind="link"
         />
         <!-- <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/> -->
+        <div id="bottomSidebarSpace" class="transition"></div>
       </q-list>
     </q-drawer>
     <div id="marker" class="gt-sm">
@@ -64,18 +66,18 @@ defineOptions({
 
 function goHome() {
   console.log('home')
-  document.getElementById("homeBtn").style.marginTop='196px';
-  document.getElementById("projectsBtn").style.marginBottom = '0px';
+  document.getElementById("topSidebarSpace").style.height='196px';
+  document.getElementById("bottomSidebarSpace").style.height = '0px';
 }
 function goAbout() {
   console.log('about')
-  document.getElementById("homeBtn").style.marginTop='148px';
-  document.getElementById("projectsBtn").style.marginBottom = '48px';
+  document.getElementById("topSidebarSpace").style.height='148px';
+  document.getElementById("bottomSidebarSpace").style.height = '48px';
 }
 function goProjects() {
   console.log('projects')
-  document.getElementById("homeBtn").style.marginTop='100px';
-  document.getElementById("projectsBtn").style.marginBottom = '96px';
+  document.getElementById("topSidebarSpace").style.height='100px';
+  document.getElementById("bottomSidebarSpace").style.height = '96px';
 }
 // TODO?: Could not get either of new Function(...) or window[...] to work for calling a
 // function from a string, so using a switch statement for now.
@@ -164,8 +166,14 @@ const externalList = [
   display: flex;
   place-items: center;
 }
+#topSidebarSpace {
+    height: 196px;
+}
+#bottomSidebarSpace {
+    height: 0px;
+}
 .transition {
-  transition: margin 0.5s linear;
+  transition: height 0.5s linear;
 }
 #marker {
   position:absolute;
@@ -174,9 +182,6 @@ const externalList = [
   z-index: 3001;
 }
 @media only screen and (min-width: 1024px) {
-  #homeBtn {
-    margin-top: 196px;
-  }
   #pageContainer {
     padding-right: 115px;
   }
