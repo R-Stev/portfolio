@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-list>
         <ExternalLink
-            v-for="link in linksList"
+            v-for="link in externalList"
             :key="link.title"
             v-bind="link"
           />
@@ -16,28 +16,12 @@
       show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
       >
       <q-list>
-        <q-item id="homeBtn" class="transition" to="/" exact @click="goHome()">
-          <q-item-section avatar ></q-item-section>
-          <q-item-section>
-            <q-item-label>Home</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item id="aboutBtn" to="/about" exact @click="goAbout()">
-          <q-item-section avatar ></q-item-section>
-          <q-item-section>
-            <q-item-label>About</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item id="projectsBtn" class="transition" to="/projects" exact @click="goProjects()">
-          <q-item-section avatar ></q-item-section>
-          <q-item-section>
-            <q-item-label>Projects</q-item-label>
-          </q-item-section>
-        </q-item>
+        <InternalLink v-for="link in internalList" :key="link.title" v-bind="link"
+        @changeRoute="handleChangeRoute" />
         <q-separator />
 
         <ExternalLink
-          v-for="link in linksList"
+          v-for="link in externalList"
           :key="link.title"
           v-bind="link"
         />
@@ -54,7 +38,7 @@
       <q-toolbar>
         <q-space ></q-space>
         <ExternalLink
-            v-for="link in linksList"
+            v-for="link in externalList"
             :key="link.title"
             v-bind="link"
           />
@@ -66,6 +50,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import InternalLink from 'components/InternalLink.vue'
 import ExternalLink from 'components/ExternalLink.vue'
 import NavItem from 'components/NavItem.vue'
 import {useRoute, useRouter} from 'vue-router'
@@ -91,6 +76,24 @@ function goProjects() {
   console.log('projects')
   document.getElementById("homeBtn").style.marginTop='100px';
   document.getElementById("projectsBtn").style.marginBottom = '96px';
+}
+// TODO?: Could not get either of new Function(...) or window[...] to work for calling a
+// function from a string, so using a switch statement for now.
+function handleChangeRoute(value) {
+  console.log('handleChange:', value);
+  switch(value) {
+    case 'Home':
+      goHome();
+      break;
+    case 'About':
+      goAbout();
+      break;
+    case 'Projects':
+      goProjects();
+      break;
+    default:
+      throw new Error(`Error: the function ${vallue} does not exist.`)
+  }
 }
 
 window.addEventListener(
@@ -119,7 +122,12 @@ window.addEventListener(
   }, false
 )
 
-const linksList = [
+const internalList = [
+  {name: 'Home', route: '/'},
+  {name: 'About', route: '/about'},
+  {name: 'Projects', route: '/projects'}
+]
+const externalList = [
   {
     title: 'Github',
     icon: 'fa-brands fa-github',
