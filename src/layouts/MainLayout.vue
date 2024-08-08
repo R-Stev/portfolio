@@ -144,6 +144,9 @@ const externalList = [
 </script>
 
 <style>
+ul {
+  list-style-type: square;
+}
 .body--light {
   background: #efefef;
 }
