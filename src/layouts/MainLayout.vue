@@ -147,6 +147,9 @@ const externalList = [
 ul {
   list-style-type: square;
 }
+ul li::marker {
+  color: #3C896D;
+}
 .body--light {
   background: #efefef;
 }
