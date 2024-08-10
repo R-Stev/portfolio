@@ -24,9 +24,12 @@ export default defineComponent({
       type      : 'loop',
       perPage   : 3,
       perMove   : 1,
-      // breakpoints: {},
+      breakpoints: {
+        1023: {perPage: 2},
+        674: {perPage: 1}
+      },
       // padding: 15,
-      heightRatio: 0.625 * 2/3,
+      // heightRatio: 0.625 * 2/3,
       pagination: false,
       focus: 'center',
       keyboard: 'global',
