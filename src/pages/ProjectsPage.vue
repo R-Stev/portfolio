@@ -1,5 +1,5 @@
 <template>
-  <q-page style="display: flex; align-items: center;">
+  <q-page id="projectPage" class="q-mt-sm">
     <Splide ref="splide" :options="options" aria-label="Projects" >
       <ProjectItem v-for="item in projectList" :key="item.image" v-bind="item" />
     </Splide>
@@ -71,3 +71,13 @@ export default defineComponent({
   }
 });
 </script>
+
+<style>
+@media only screen and (min-width: 1024px) {
+  #projectPage {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+}
+</style>

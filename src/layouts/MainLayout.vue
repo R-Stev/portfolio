@@ -11,7 +11,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer id="sidebar"  class="gt-sm" :width="115"
+    <q-drawer id="sidebar"  class="gt-sm" :width="125"
       show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
       :style="`background: ${$q.dark.isActive ? '#101010' : '#efefef'};`"
       >
@@ -136,7 +136,7 @@ const externalList = [
   {
     title: 'Github',
     icon: 'fa-brands fa-github',
-    link: 'https://github.com/quasarframework'
+    link: 'https://github.com/R-Stev'
   },
   {
     title: 'Linkedin',
@@ -200,7 +200,7 @@ ul li::marker {
 }
 @media only screen and (min-width: 1024px) {
   #pageContainer {
-    padding-right: 115px;
+    padding-right: 125px;
   }
 }
 </style>

@@ -60,16 +60,19 @@
 <style>
 img {
   max-width: 100%;
-  max-height: calc(60vh - 25px);
+  /* max-height: calc(60vh - 5px); */
 }
-.slideImg {
-  height: 60vh;
-}
-.slideText {
-  height: 40vh;
-  padding: 8px 16px 0 16px;
-  /* padding-left: 16px;
-  padding-right: 16px; */
+/* .slideImg {
+  height: calc(65vh - 50px);
+} */
+@media only screen and (max-width: 1023px) {
+  .slideText {
+    min-height: 240px;
+    /* height: calc(35vh - 50px); */
+    padding: 8px 16px 0 16px;
+    /* padding-left: 16px;
+    padding-right: 16px; */
+  }
 }
 @media only screen and (min-width: 1024px) {
   img {
@@ -78,11 +81,11 @@ img {
   }
   .slideImg {
     height: 50vh;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
   }
   .slideText {
     height: 50vh;
-    padding: 8px 0 0 0;
+    padding: 12px 0 0 0;
     /* padding-left: 8px;
     padding-right: 8px; */
   }

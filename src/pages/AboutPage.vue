@@ -1,12 +1,12 @@
 <template>
   <q-page>
-    <div class="q-pb-sm column items-center justify-end" style="height: 50vh">
-      About
+    <div id="aboutBlock" class="q-pb-sm column items-center justify-end">
+      <div>About</div>
     </div>
-    <div class="q-pt-sm column items-center justify-start" style="height: 50vh">
-      Skills
-      <div class="row" id="skillBlock">
-        <div v-for="item in skillList" :key="item" class="col-6 col-sm-4 col-md-3 skillItem">{{ item }}</div>
+    <div class="q-pt-sm column items-center justify-start">
+      <div>Skills</div>
+      <div class="row justify-between" id="skillBlock">
+        <div v-for="item in skillList" :key="item" class="col-6 col-sm-3 skillItem">{{ item }}</div>
       </div>
     </div>
   </q-page>
@@ -23,11 +23,21 @@ const skillList = [
 </script>
 
 <style>
+#aboutBlock {
+   height: calc(50vh - 50px);
+}
+@media only screen and (min-width: 1024px) {
+  #aboutBlock {
+    height: 50vh;
+  }
+}
 #skillBlock {
+  max-width: 65vw;
   /* wfg */
 }
 .skillItem {
   /* wfg */
+  /* max-width: 120px !important; */
 }
 .skillItem::before {
   color: #3C896D;
