@@ -5,6 +5,9 @@
       <q-toolbar>
         <q-space></q-space>
         <InternalLink v-for="link in internalList" :key="link.title" v-bind="link" />
+        <div id="darkModeButton" class="q-ml-xs">
+          <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -23,12 +26,14 @@
           :key="link.title"
           v-bind="link"
         />
-        <!-- <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/> -->
         <div id="bottomSidebarSpace" class="transition"></div>
       </q-list>
     </q-drawer>
     <div id="marker" class="gt-sm">
       <q-icon name="fa-solid fa-caret-left"  />
+    </div>
+    <div id="darkModeButton" class="gt-sm q-mt-xs q-mr-sm absolute-top-right">
+      <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
     </div>
 
     <q-page-container id="pageContainer">
@@ -94,7 +99,7 @@ function handleChangeRoute(value) {
       goProjects();
       break;
     default:
-      throw new Error(`Error: the function ${vallue} does not exist.`)
+      throw new Error(`Error: the function ${value} does not exist.`)
   }
 }
 
@@ -158,6 +163,9 @@ ul li::marker {
 }
 .body--light .q-header, .body--light .q-footer {
   color: #000000;
+}
+.q-toolbar {
+  padding: 0 8px;
 }
 .q-item {
   padding: 8px 12px;
