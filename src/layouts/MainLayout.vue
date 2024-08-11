@@ -64,30 +64,28 @@ import { useQuasar } from 'quasar'
 const route = useRoute()
 const router = useRouter()
 const $q = useQuasar()
+const sidebarOffset = 244
 
 defineOptions({
   name: 'MainLayout'
 })
 
 function goHome() {
-  console.log('home')
-  document.getElementById("topSidebarSpace").style.height='196px';
-  document.getElementById("bottomSidebarSpace").style.height = '0px';
+  document.getElementById("topSidebarSpace").style.height= sidebarOffset.toString() + 'px';
+  // document.getElementById("bottomSidebarSpace").style.height = '0px';
 }
 function goAbout() {
-  console.log('about')
-  document.getElementById("topSidebarSpace").style.height='148px';
-  document.getElementById("bottomSidebarSpace").style.height = '48px';
+  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 96).toString() + 'px';
+  // document.getElementById("bottomSidebarSpace").style.height = '48px';
 }
 function goProjects() {
-  console.log('projects')
-  document.getElementById("topSidebarSpace").style.height='100px';
-  document.getElementById("bottomSidebarSpace").style.height = '96px';
+  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 192).toString() + 'px';
+  // document.getElementById("bottomSidebarSpace").style.height = '96px';
 }
 // TODO?: Could not get either of new Function(...) or window[...] to work for calling a
 // function from a string, so using a switch statement for now.
 function handleChangeRoute(value) {
-  console.log('handleChange:', value);
+  // console.log('handleChange:', value);
   switch(value) {
     case 'Home':
       goHome();
@@ -144,6 +142,11 @@ const externalList = [
     title: 'Linkedin',
     icon: 'fa-brands fa-linkedin',
     link: 'https://www.linkedin.com/in/rowanstevenson/'
+  },
+  {
+    title: 'Source',
+    icon: 'fa-solid fa-code',
+    link: 'https://github.com/R-Stev/portfolio'
   }
 ]
 </script>
@@ -181,7 +184,7 @@ ul li::marker {
   place-items: center;
 }
 #topSidebarSpace {
-    height: 196px;
+    height: 244px;
 }
 #bottomSidebarSpace {
     height: 0px;
