@@ -5,8 +5,8 @@
     </div>
     <div class="q-pt-sm column items-center justify-start">
       <div>Skills</div>
-      <div class="row justify-between" id="skillBlock">
-        <div v-for="item in skillList" :key="item" class="col-6 col-sm-3 skillItem">{{ item }}</div>
+      <div class="row listBlock">
+        <div v-for="item in skillList" :key="item" class="col-6 col-sm-3 listItem">{{ item }}</div>
       </div>
     </div>
   </q-page>
@@ -31,19 +31,7 @@ const skillList = [
     height: 50vh;
   }
 }
-#skillBlock {
-  max-width: 65vw;
-  /* wfg */
-}
-.skillItem {
-  /* wfg */
-  /* max-width: 120px !important; */
-}
-.skillItem::before {
-  color: #3C896D;
-  content: '+';
+.listItem::before {
   font-size: 1.5em;
-  position: relative;
-  right: 5px;
 }
 </style>

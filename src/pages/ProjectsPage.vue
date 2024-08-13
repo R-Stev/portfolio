@@ -1,5 +1,5 @@
 <template>
-  <q-page id="projectPage" class="q-mt-sm">
+  <q-page id="projectPage">
     <Splide ref="splide" :options="options" aria-label="Projects" >
       <ProjectItem v-for="item in projectList" :key="item.image" v-bind="item" />
     </Splide>
@@ -25,7 +25,7 @@ export default defineComponent({
       perPage   : 3,
       perMove   : 1,
       breakpoints: {
-        1023: {perPage: 2},
+        1300: {perPage: 2},
         674: {perPage: 1}
       },
       // padding: 15,

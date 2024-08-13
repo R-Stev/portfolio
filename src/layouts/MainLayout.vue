@@ -203,4 +203,14 @@ ul li::marker {
     padding-right: 125px;
   }
 }
+.listBlock {
+  min-width: 200px;
+  max-width: 65vw;
+}
+.listItem::before {
+  color: #3C896D;
+  content: '+';
+  position: relative;
+  right: 5px;
+}
 </style>

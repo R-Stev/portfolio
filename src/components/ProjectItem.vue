@@ -10,11 +10,11 @@
       <div class="column justify-between slideText">
         <div class="col-6">
           {{ props.description }}
-          <div v-if="props.tools.length > 0" class="q-pt-sm">
+          <div v-if="props.tools.length > 0" class="q-pt-sm column items-center">
             <div>Development Tools</div>
-            <ul>
-              <li v-for="item in props.tools" :key="item">{{ item }}</li>
-            </ul>
+            <div class="row listBlock">
+              <div v-for="item in props.tools" :key="item" class="col-6 listItem">{{ item }}</div>
+            </div>
           </div>
         </div>
         <div class="col-6">
@@ -66,10 +66,13 @@ img {
   height: calc(65vh - 50px);
 } */
 @media only screen and (max-width: 1023px) {
+  img {
+    max-height: calc(100vh - 340px);
+  }
   .slideText {
-    min-height: 240px;
+    min-height: 230px;
     /* height: calc(35vh - 50px); */
-    padding: 8px 16px 0 16px;
+    padding: 8px 8px 0 8px;
     /* padding-left: 16px;
     padding-right: 16px; */
   }
