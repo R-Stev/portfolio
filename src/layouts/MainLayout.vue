@@ -1,3 +1,8 @@
+<!-- TODO
+improve mobile (landscape) view
+improve tablet (portrait) view
+specify canonical link? -->
+
 <template>
   <q-layout view="hHh Lpr fFf">
     <q-header class="lt-md"
