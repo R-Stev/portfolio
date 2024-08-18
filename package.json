@@ -1,8 +1,8 @@
 {
   "name": "pf",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "portfolio",
+  "description": "Full stack developer with knowledge of Django, Quasar and React to create responsive websites.",
+  "productName": "Rowan Stevenson | Full Stack Web Developer in Australia",
   "author": "R S <r.stevenson@runbox.com>",
   "private": true,
   "scripts": {
