@@ -24,6 +24,7 @@ specify canonical link? -->
         <div id="topSidebarSpace" class="transition"></div>
         <InternalLink v-for="link in internalList" :key="link.title" v-bind="link"
         @changeRoute="handleChangeRoute" />
+        <div id="bottomSidebarSpace" class="transition"></div>
         <q-separator />
 
         <ExternalLink
@@ -31,7 +32,6 @@ specify canonical link? -->
           :key="link.title"
           v-bind="link"
         />
-        <div id="bottomSidebarSpace" class="transition"></div>
       </q-list>
     </q-drawer>
     <div id="marker" class="gt-sm">
@@ -77,15 +77,15 @@ defineOptions({
 
 function goHome() {
   document.getElementById("topSidebarSpace").style.height= sidebarOffset.toString() + 'px';
-  // document.getElementById("bottomSidebarSpace").style.height = '0px';
+  document.getElementById("bottomSidebarSpace").style.height = '0px';
 }
 function goAbout() {
-  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 96).toString() + 'px';
-  // document.getElementById("bottomSidebarSpace").style.height = '48px';
+  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 48).toString() + 'px';
+  document.getElementById("bottomSidebarSpace").style.height = '48px';
 }
 function goProjects() {
-  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 192).toString() + 'px';
-  // document.getElementById("bottomSidebarSpace").style.height = '96px';
+  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 96).toString() + 'px';
+  document.getElementById("bottomSidebarSpace").style.height = '96px';
 }
 // TODO?: Could not get either of new Function(...) or window[...] to work for calling a
 // function from a string, so using a switch statement for now.
