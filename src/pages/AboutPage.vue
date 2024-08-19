@@ -1,11 +1,15 @@
 <template>
   <q-page>
-    <div id="aboutBlock" class="q-pb-sm column items-center justify-end">
-      <div>About</div>
+    <div id="aboutBlock" class="q-pb-md column items-center justify-end">
+      <div class="listBlock">
+        <div class="q-mb-md">About</div>
+        <p>I am Rowan Stevenson, a full stack web developer with an interest in continual learning.  I have worked mostly with Django, Quasar and React.  Some of what I have made is shown under projects.</p>
+        <p>Current subject of learning: data analytics.</p>
+      </div>
     </div>
-    <div class="q-pt-sm column items-center justify-start">
-      <div>Skills</div>
-      <div class="row listBlock">
+    <div class="q-pt-md column items-center justify-start">
+      <div class="q-mb-md">Skills</div>
+      <div class="row">
         <div v-for="item in skillList" :key="item" class="col-6 col-sm-3 listItem">{{ item }}</div>
       </div>
     </div>
