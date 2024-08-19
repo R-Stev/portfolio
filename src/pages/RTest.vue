@@ -1,6 +1,6 @@
 <template>
     <q-layout>
-        <q-header class="bg-blue-grey-9">
+        <q-header class="bg-blue-grey-9 responsiveHeader">
             <q-toolbar>
                 <q-btn-toggle color="red" text-color="white"
                     v-model="display" outline no-caps :options="[
@@ -9,8 +9,7 @@
                         {label: 'Tablet (Portrait)', value: 'tabletp'},
                         {label: 'Mobile', value: 'mobile'},
                         {label: 'Mobile (Landscape)', value: 'mobilel'}
-                    ]"
-                />
+                    ]" />
             </q-toolbar>
         </q-header>
         <q-page-container :class="display" class="framed">
@@ -37,6 +36,12 @@
     --mobileWidth: 350px;
     --mobileHeight: 568px;
 }
+/* .responsiveHeader {} */
+@media only screen and (max-width: 1199px) {
+    .responsiveHeader {
+        display: none;
+    }
+}
 .framed {
     box-shadow: 0 0 0 29px #555, 0 0 0 30px #dee0e3;
     border-radius: 10px;
@@ -46,11 +51,12 @@ iframe {
     width: 100%;
     height: calc(100% - 50px);
 }
-.desktop {
-    /* position: fixed;
-    width: 100%;
-    height: 100%; */
+@media only screen and (max-width: 1199px) {
+    iframe {
+        height: 100%;
+    }
 }
+/* .desktop {} */
 .tablet, .tabletp {
     padding-top: 0px !important;
     margin-top: 25px;
