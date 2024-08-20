@@ -13,7 +13,7 @@
             </q-toolbar>
         </q-header>
         <q-page-container :class="display" class="framed">
-            <iframe src="/"></iframe>
+            <iframe src="."></iframe>
         </q-page-container>
     </q-layout>
 </template>
