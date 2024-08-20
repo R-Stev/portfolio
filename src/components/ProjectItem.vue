@@ -2,9 +2,9 @@
   <SplideSlide>
       <div class="column items-center justify-end slideImg">
         <picture>
-          <source media="(max-width: 1023px)" :srcset="`src/assets/m_${props.image}`">
-          <source media="(min-width: 1024px)" :srcset="`src/assets/${props.image}`">
-          <img :src="`src/assets/${props.image}`" alt="Sample 1">
+          <source media="(max-width: 1023px)" :srcset="`/thumbs/m_${props.image}`">
+          <source media="(min-width: 1024px)" :srcset="`/thumbs/${props.image}`">
+          <img :src="`/thumbs/${props.image}`" alt="Sample 1">
         </picture>
       </div>
       <div class="column justify-between slideText">
