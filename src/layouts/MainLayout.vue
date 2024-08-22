@@ -25,7 +25,7 @@ add splash page? -->
       <q-list>
         <div id="topSidebarSpace" class="transition"></div>
         <InternalLink v-for="link in internalList" :key="link.title" v-bind="link"
-        @changeRoute="handleChangeRoute" />
+        @changeRoute="updateSidebar" />
         <div id="bottomSidebarSpace" class="transition"></div>
         <q-separator />
 
@@ -72,6 +72,11 @@ const route = useRoute()
 const router = useRouter()
 const $q = useQuasar()
 const sidebarOffset = 244
+let initialX = null
+let initialY = null
+let currentX = null
+let currentY = null
+let initialTime = null
 if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   $q.dark.set(true)
 }
@@ -94,8 +99,7 @@ function goProjects() {
 }
 // TODO?: Could not get either of new Function(...) or window[...] to work for calling a
 // function from a string, so using a switch statement for now.
-function handleChangeRoute(value) {
-  // console.log('handleChange:', value);
+function updateSidebar(value) {
   switch(value) {
     case 'Home':
       goHome();
@@ -110,12 +114,9 @@ function handleChangeRoute(value) {
       throw new Error(`Error: the function ${value} does not exist.`)
   }
 }
-
-window.addEventListener(
-  "keydown", (event) => {
-    const keyName = event.key;
-    if (["ArrowDown", "PageDown"].includes(keyName)) {
-      if(route.fullPath == '/') {
+function changeNav(dir) {
+  if(dir == "down") {
+    if(route.fullPath == '/') {
         router.push({path: '/about'});
         goAbout();
       }
@@ -123,9 +124,9 @@ window.addEventListener(
         router.push({path: '/projects'});
         goProjects();
       }
-    }
-    if (["ArrowUp", "PageUp"].includes(keyName)) {
-      if(route.fullPath == '/about') {
+  }
+  else if (dir == "up") {
+    if(route.fullPath == '/about') {
         router.push({path: '/'});
         goHome();
       }
@@ -133,7 +134,52 @@ window.addEventListener(
         router.push({path: '/about'});
         goAbout();
       }
+  }
+}
+
+window.addEventListener(
+  "keydown", (event) => {
+    const keyName = event.key;
+    if (["ArrowDown", "PageDown"].includes(keyName)) {
+      changeNav("down");
     }
+    if (["ArrowUp", "PageUp"].includes(keyName)) {
+      changeNav("up");
+    }
+  }, false
+)
+window.addEventListener(
+  "touchstart", (event) => {
+    initialX = event.touches[0].clientX;
+    initialY = event.touches[0].clientY;
+    initialTime = Date.now();
+  }, false
+)
+window.addEventListener(
+  "touchmove", (event) => {
+    if (!initialX || !initialY) {
+        return;
+    }
+    currentX = event.touches[0].clientX;
+    currentY = event.touches[0].clientY;
+  }, false
+)
+window.addEventListener(
+  "touchend", (event) => {
+    let xDiff = initialX - currentX;
+    let yDiff = initialY - currentY;
+    let timeDiff = Date.now() - initialTime;
+    // console.log(xDiff, yDiff, timeDiff);
+    if ((Math.abs(xDiff) < Math.abs(yDiff)) && (Math.abs(yDiff) > 150) && (timeDiff < 200)){
+      if (yDiff > 0){
+        changeNav("down");
+      } else {
+        changeNav("up");
+      }
+    }
+    initialX = null;
+    initialY = null;
+    initialTime = null;
   }, false
 )
 
