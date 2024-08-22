@@ -1,7 +1,9 @@
 <!-- TODO
 improve mobile (landscape) view
 improve tablet (portrait) view
-specify canonical link? -->
+specify canonical link?
+add swipe up/down
+add splash page? -->
 
 <template>
   <q-layout view="hHh Lpr fFf">
@@ -70,6 +72,9 @@ const route = useRoute()
 const router = useRouter()
 const $q = useQuasar()
 const sidebarOffset = 244
+if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  $q.dark.set(true)
+}
 
 defineOptions({
   name: 'MainLayout'
