@@ -8,7 +8,7 @@
                         {label: 'Tablet', value: 'tablet'},
                         {label: 'Tablet (Portrait)', value: 'tabletp'},
                         {label: 'Mobile', value: 'mobile'},
-                        {label: 'Mobile (Landscape)', value: 'mobilel'}
+                        // {label: 'Mobile (Landscape)', value: 'mobilel'}
                     ]" />
             </q-toolbar>
         </q-header>
