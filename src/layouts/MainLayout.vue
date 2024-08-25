@@ -1,5 +1,4 @@
 <!-- TODO
-improve mobile (landscape) view
 improve tablet (portrait) view
 add splash page? -->
 
@@ -16,7 +15,7 @@ add splash page? -->
       </q-toolbar>
     </q-header>
 
-    <q-drawer id="sidebar"  class="gt-sm" :width="125"
+    <q-drawer id="sidebar" class="gt-sm" :width="125"
       show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
       :style="`background: ${$q.dark.isActive ? '#101010' : '#efefef'};`"
       >
@@ -257,9 +256,20 @@ ul li::marker {
     padding-right: 125px;
   }
 }
+.textBlock {
+  max-width: 90vw;
+}
 .listBlock {
   min-width: 200px;
-  max-width: 65vw;
+  max-width: min(350px, 85vw);
+}
+@media only screen and (min-width: 600px) {
+  .textBlock {
+    max-width: 65vw;
+  }
+  .listBlock {
+    max-width: 450px;
+  }
 }
 .listItem::before {
   color: #3C896D;

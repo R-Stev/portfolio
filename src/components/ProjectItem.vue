@@ -18,9 +18,9 @@
           </div>
         </div>
         <div class="col-6">
-          <q-btn v-if="props.demoLink" outline square label="Demo" class="float-left"
+          <q-btn v-if="props.demoLink" outline square label="Demo" class="float-left q-mb-xs"
           :href="props.demoLink" />
-          <q-btn v-if="props.sourceLink" outline square label="Source" class="float-right"
+          <q-btn v-if="props.sourceLink" outline square label="Source" class="float-right q-mb-xs"
           :href="`https://github.com/R-Stev/${props.sourceLink}`" />
         </div>
       </div>
@@ -72,7 +72,7 @@ img {
   .slideText {
     min-height: 230px;
     /* height: calc(35vh - 50px); */
-    padding: 8px 8px 0 8px;
+    padding: 12px 8px 0 8px;
     /* padding-left: 16px;
     padding-right: 16px; */
   }
