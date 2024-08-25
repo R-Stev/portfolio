@@ -1,8 +1,6 @@
 <!-- TODO
 improve mobile (landscape) view
 improve tablet (portrait) view
-specify canonical link?
-add swipe up/down
 add splash page? -->
 
 <template>
@@ -184,9 +182,9 @@ window.addEventListener(
 )
 
 const internalList = [
-  {name: 'Home', route: '/'},
-  {name: 'About', route: '/about'},
-  {name: 'Projects', route: '/projects'}
+  {name: 'Home', route: '/', icon: 'fa-solid fa-house'},
+  {name: 'About', route: '/about', icon: 'fa-solid fa-address-card'},
+  {name: 'Projects', route: '/projects', icon: 'fa-solid fa-file-code'}
 ]
 const externalList = [
   {

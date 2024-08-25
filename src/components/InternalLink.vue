@@ -1,7 +1,9 @@
 <template>
     <q-item :to="props.route"
     exact @click="$emit('changeRoute', props.name)">
-        <q-item-section avatar class="gt-sm"></q-item-section>
+        <q-item-section avatar class="gt-sm">
+          <q-icon :name="props.icon" />
+        </q-item-section>
         <q-item-section>
             <q-item-label>{{ props.name }}</q-item-label>
         </q-item-section>
@@ -21,6 +23,10 @@
       required: true
     },
     route: {
+      type: String,
+      required: true
+    },
+    icon: {
       type: String,
       required: true
     }
