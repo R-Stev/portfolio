@@ -73,11 +73,9 @@ export default defineComponent({
 </script>
 
 <style>
-@media only screen and (min-width: 1024px) {
   #projectPage {
     display: flex;
     align-items: center;
     margin-top: 0;
   }
-}
 </style>
