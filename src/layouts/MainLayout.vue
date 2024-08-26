@@ -7,9 +7,10 @@ adjust or remove splash page -->
     <q-header class="lt-md">
       <q-toolbar>
         <q-space></q-space>
-        <InternalLink v-for="link in internalList" :key="link.title" v-bind="link" />
+        <InternalLink v-for="link in internalList" :key="link.title" v-bind="link" role="menuitem" />
         <div id="darkModeButton" class="q-ml-xs">
-          <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
+          <q-btn flat round @click="$q.dark.toggle()" aria-label="Light/Dark Toggle"
+          :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
         </div>
       </q-toolbar>
     </q-header>
@@ -19,23 +20,20 @@ adjust or remove splash page -->
       >
       <q-list>
         <div id="topSidebarSpace" class="transition"></div>
-        <InternalLink v-for="link in internalList" :key="link.title" v-bind="link"
+        <InternalLink v-for="link in internalList" :key="link.title" v-bind="link" role="menuitem"
         @changeRoute="updateSidebar" />
         <div id="bottomSidebarSpace" class="transition"></div>
         <q-separator />
 
-        <ExternalLink
-          v-for="link in externalList"
-          :key="link.title"
-          v-bind="link"
-        />
+        <ExternalLink v-for="link in externalList" :key="link.title" v-bind="link" role="menuitem" />
       </q-list>
     </q-drawer>
     <div id="marker" class="gt-sm">
       <q-icon name="fa-solid fa-caret-left"  />
     </div>
     <div id="darkModeButton" class="gt-sm q-mt-xs q-mr-sm absolute-top-right">
-      <q-btn flat round @click="$q.dark.toggle()" :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
+      <q-btn flat round @click="$q.dark.toggle()" aria-label="Light/Dark Toggle"
+      :icon="$q.dark.isActive ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"/>
     </div>
 
     <q-page-container id="pageContainer">
@@ -44,11 +42,7 @@ adjust or remove splash page -->
     <q-footer class="lt-md">
       <q-toolbar>
         <q-space></q-space>
-        <ExternalLink
-            v-for="link in externalList"
-            :key="link.title"
-            v-bind="link"
-          />
+        <ExternalLink v-for="link in externalList" :key="link.title" v-bind="link" role="menuitem" />
       </q-toolbar>
     </q-footer>
   </q-layout>
