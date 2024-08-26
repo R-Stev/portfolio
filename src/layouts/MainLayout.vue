@@ -1,5 +1,4 @@
 <!-- TODO
-improve tablet (portrait) view
 add splash page? -->
 
 <template>
@@ -82,30 +81,22 @@ defineOptions({
   name: 'MainLayout'
 })
 
-function goHome() {
-  document.getElementById("topSidebarSpace").style.height= sidebarOffset.toString() + 'px';
-  document.getElementById("bottomSidebarSpace").style.height = '0px';
-}
-function goAbout() {
-  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 48).toString() + 'px';
-  document.getElementById("bottomSidebarSpace").style.height = '48px';
-}
-function goProjects() {
-  document.getElementById("topSidebarSpace").style.height=(sidebarOffset - 96).toString() + 'px';
-  document.getElementById("bottomSidebarSpace").style.height = '96px';
+function setSidebarSpacing(n) {
+  document.getElementById("topSidebarSpace").style.height = (sidebarOffset - n).toString() + 'px';
+  document.getElementById("bottomSidebarSpace").style.height = n.toString() + 'px';
 }
 // TODO?: Could not get either of new Function(...) or window[...] to work for calling a
 // function from a string, so using a switch statement for now.
 function updateSidebar(value) {
   switch(value) {
     case 'Home':
-      goHome();
+      setSidebarSpacing(0);
       break;
     case 'About':
-      goAbout();
+      setSidebarSpacing(48);
       break;
     case 'Projects':
-      goProjects();
+      setSidebarSpacing(96);
       break;
     default:
       throw new Error(`Error: the function ${value} does not exist.`)
@@ -115,21 +106,21 @@ function changeNav(dir) {
   if(dir == "down") {
     if(route.fullPath == '/') {
         router.push({path: '/about'});
-        goAbout();
+        setSidebarSpacing(48);
       }
       else if(route.fullPath == '/about') {
         router.push({path: '/projects'});
-        goProjects();
+        setSidebarSpacing(96);
       }
   }
   else if (dir == "up") {
     if(route.fullPath == '/about') {
         router.push({path: '/'});
-        goHome();
+        setSidebarSpacing(0);
       }
       else if(route.fullPath == '/projects') {
         router.push({path: '/about'});
-        goAbout();
+        setSidebarSpacing(48);
       }
   }
 }
