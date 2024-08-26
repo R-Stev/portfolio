@@ -1,10 +1,10 @@
 <!-- TODO
-add splash page? -->
+merge InternalLink & ExternalLink?
+adjust or remove splash page -->
 
 <template>
   <q-layout view="hHh Lpr fFf">
-    <q-header class="lt-md"
-    :style="`background: ${$q.dark.isActive ? '#202020' : '#dfdfdf'};`" >
+    <q-header class="lt-md">
       <q-toolbar>
         <q-space></q-space>
         <InternalLink v-for="link in internalList" :key="link.title" v-bind="link" />
@@ -16,7 +16,6 @@ add splash page? -->
 
     <q-drawer id="sidebar" class="gt-sm" :width="125"
       show-if-above no-swipe-open no-swipe-close no-swipe-backdrop
-      :style="`background: ${$q.dark.isActive ? '#101010' : '#efefef'};`"
       >
       <q-list>
         <div id="topSidebarSpace" class="transition"></div>
@@ -42,8 +41,7 @@ add splash page? -->
     <q-page-container id="pageContainer">
       <router-view />
     </q-page-container>
-    <q-footer class="lt-md"
-    :style="`background: ${$q.dark.isActive ? '#202020' : '#dfdfdf'};`">
+    <q-footer class="lt-md">
       <q-toolbar>
         <q-space></q-space>
         <ExternalLink
@@ -200,13 +198,19 @@ ul {
   list-style-type: square;
 }
 ul li::marker {
-  color: #3C896D;
+  color: #306E57;
 }
-.body--light {
+.body--light, .body--light .q-drawer {
   background: #efefef;
 }
+.body--light header, .body--light footer {
+  background: #dfdfdf;
+}
 .body--dark {
-  --q-primary: #4FB286;
+  --q-primary: #439979;
+}
+.body--dark header, .body--dark footer {
+  background: #202020;
 }
 .body--light .q-header, .body--light .q-footer {
   color: #000000;
@@ -263,9 +267,12 @@ ul li::marker {
   }
 }
 .listItem::before {
-  color: #3C896D;
+  color: #306E57;
   content: '+';
   position: relative;
   right: 5px;
+}
+.body--dark .listItem::before {
+  color: #439979;
 }
 </style>
