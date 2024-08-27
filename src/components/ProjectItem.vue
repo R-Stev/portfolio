@@ -4,7 +4,7 @@
         <picture>
           <source media="(max-width: 1023px)" :srcset="`thumbs/m_${props.image}`">
           <source media="(min-width: 1024px)" :srcset="`thumbs/${props.image}`">
-          <img :src="`thumbs/${props.image}`" alt="Sample 1">
+          <img :src="`thumbs/${props.image}`" :alt="`${props.sourceLink} project thumbnail`">
         </picture>
       </div>
       <div class="column justify-between slideText">
