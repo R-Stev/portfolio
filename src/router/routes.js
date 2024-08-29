@@ -8,7 +8,7 @@ const routes = [
       { path: '/projects', component: () => import('pages/ProjectsPage.vue') }
     ]
   },
-  {path: '/rtest', component: () => import('pages/RTest.vue')},
+  {path: '/wrap', component: () => import('pages/ResponsiveWrapper.vue')},
 
   // Always leave this as last one,
   // but you can also remove it
