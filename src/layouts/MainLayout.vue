@@ -1,6 +1,6 @@
 <!-- TODO
 merge InternalLink & ExternalLink?
-adjust or remove splash page -->
+-->
 
 <template>
   <q-layout view="hHh Lpr fFf">
@@ -59,7 +59,7 @@ import { useQuasar } from 'quasar'
 const route = useRoute()
 const router = useRouter()
 const $q = useQuasar()
-const sidebarOffset = 244
+const sidebarOffset = 196
 let initialX = null
 let initialY = null
 let currentX = null
@@ -85,10 +85,10 @@ function updateSidebar(value) {
       setSidebarSpacing(0);
       break;
     case 'About':
-      setSidebarSpacing(48);
+      setSidebarSpacing(0);
       break;
     case 'Projects':
-      setSidebarSpacing(96);
+      setSidebarSpacing(48);
       break;
     default:
       throw new Error(`Error: the function ${value} does not exist.`)
@@ -97,23 +97,23 @@ function updateSidebar(value) {
 function changeNav(dir) {
   if(dir == "down") {
     if(route.fullPath == '/') {
-        router.push({path: '/about'});
-        setSidebarSpacing(48);
-      }
-      else if(route.fullPath == '/about') {
-        router.push({path: '/projects'});
-        setSidebarSpacing(96);
-      }
+      router.push({path: '/projects'});
+      setSidebarSpacing(48);
+    }
+    // else if(route.fullPath == '/about') {
+    //   router.push({path: '/projects'});
+    //   setSidebarSpacing(96);
+    // }
   }
   else if (dir == "up") {
-    if(route.fullPath == '/about') {
-        router.push({path: '/'});
-        setSidebarSpacing(0);
-      }
-      else if(route.fullPath == '/projects') {
-        router.push({path: '/about'});
-        setSidebarSpacing(48);
-      }
+    if(route.fullPath == '/projects') {
+      router.push({path: '/'});
+      setSidebarSpacing(0);
+    }
+    // else if(route.fullPath == '/projects') {
+    //   router.push({path: '/about'});
+    //   setSidebarSpacing(48);
+    // }
   }
 }
 
@@ -164,8 +164,8 @@ window.addEventListener(
 )
 
 const internalList = [
-  {name: 'Home', route: '/', icon: 'fa-solid fa-house'},
-  {name: 'About', route: '/about', icon: 'fa-solid fa-address-card'},
+  // {name: 'Home', route: '/', icon: 'fa-solid fa-house'},
+  {name: 'About', route: '/', icon: 'fa-solid fa-address-card'},
   {name: 'Projects', route: '/projects', icon: 'fa-solid fa-file-code'}
 ]
 const externalList = [
@@ -226,7 +226,7 @@ ul li::marker {
   place-items: center;
 }
 #topSidebarSpace {
-    height: 244px;
+    height: 196px;
 }
 #bottomSidebarSpace {
     height: 0px;
