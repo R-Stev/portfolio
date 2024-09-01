@@ -232,7 +232,7 @@ ul li::marker {
     height: 0px;
 }
 .transition {
-  transition: height 0.5s linear;
+  transition: height 0.25s linear;
 }
 #marker {
   position:absolute;
