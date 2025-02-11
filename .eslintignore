@@ -7,3 +7,4 @@
 /quasar.config.*.temporary.compiled*
 # TODO?: set up eslint to use typescript
 /src/pages/ProjectsPage.vue
+/src/pages/DataPage.vue

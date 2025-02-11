@@ -59,7 +59,7 @@ import { useQuasar } from 'quasar'
 const route = useRoute()
 const router = useRouter()
 const $q = useQuasar()
-const sidebarOffset = 196
+const sidebarOffset = 244
 let initialX = null
 let initialY = null
 let currentX = null
@@ -100,20 +100,20 @@ function changeNav(dir) {
       router.push({path: '/projects'});
       setSidebarSpacing(48);
     }
-    // else if(route.fullPath == '/about') {
-    //   router.push({path: '/projects'});
-    //   setSidebarSpacing(96);
-    // }
+    else if(route.fullPath == '/projects') {
+      router.push({path: '/data'});
+      setSidebarSpacing(96);
+    }
   }
   else if (dir == "up") {
     if(route.fullPath == '/projects') {
       router.push({path: '/'});
       setSidebarSpacing(0);
     }
-    // else if(route.fullPath == '/projects') {
-    //   router.push({path: '/about'});
-    //   setSidebarSpacing(48);
-    // }
+    else if(route.fullPath == '/data') {
+      router.push({path: '/projects'});
+      setSidebarSpacing(48);
+    }
   }
 }
 
@@ -166,7 +166,8 @@ window.addEventListener(
 const internalList = [
   // {name: 'Home', route: '/', icon: 'fa-solid fa-house'},
   {name: 'About', route: '/', icon: 'fa-solid fa-address-card'},
-  {name: 'Projects', route: '/projects', icon: 'fa-solid fa-file-code'}
+  {name: 'Projects', route: '/projects', icon: 'fa-solid fa-file-code'},
+  {name: 'Data', route: '/data', icon: 'fa-solid fa-magnifying-glass-chart'}
 ]
 const externalList = [
   {
@@ -226,7 +227,7 @@ ul li::marker {
   place-items: center;
 }
 #topSidebarSpace {
-    height: 196px;
+    height: 244px;
 }
 #bottomSidebarSpace {
     height: 0px;
