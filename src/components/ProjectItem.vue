@@ -4,7 +4,7 @@
         <picture>
           <source media="(max-width: 1023px)" :srcset="`thumbs/m_${props.image}`">
           <source media="(min-width: 1024px)" :srcset="`thumbs/${props.image}`">
-          <img :src="`thumbs/${props.image}`" :alt="`${props.sourceLink} project thumbnail`">
+          <img :src="`thumbs/${props.image}`" :alt="`${props.sourceLink} thumbnail`">
         </picture>
       </div>
       <div class="column justify-between slideText">
@@ -21,19 +21,24 @@
           <q-btn v-if="props.demoLink" outline square label="Demo" class="float-left q-mb-xs"
           :href="props.demoLink" />
           <q-btn v-if="props.sourceLink" outline square label="Source" class="float-right q-mb-xs"
-          :href="`https://github.com/R-Stev/${props.sourceLink}`" />
+          :href="computedHref" />
         </div>
       </div>
   </SplideSlide>
 </template>
 
 <script setup>
+  import { computed } from 'vue'
   import { SplideSlide } from '@splidejs/vue-splide';
   defineOptions({
     name: 'ProjectItem'
   })
   
   const props = defineProps({
+    prefix: {
+      type: String,
+      required: true
+    },
     image: {
       type: String,
       required: true
@@ -53,6 +58,18 @@
     sourceLink: {
       type: String,
       default: ''
+    }
+  })
+  const computedHref = computed(() => {
+    switch(props.prefix) {
+      case 'github':
+        return 'https://github.com/R-Stev/' + props.sourceLink;
+      case 'kaggle':
+        return 'https://www.kaggle.com/code/rstev0/' + props.sourceLink;
+      case 'tableau':
+        return 'https://public.tableau.com/app/profile/r.s1753/viz/' + props.sourceLink;
+      default:
+        return '';
     }
   })
 </script>

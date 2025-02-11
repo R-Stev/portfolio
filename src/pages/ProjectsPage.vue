@@ -38,6 +38,7 @@ export default defineComponent({
     };
     const projectList = [
     {
+      prefix: 'github',
       image: 'jamming.jpg',
       description: 'A client for managing Spotify playlists, with modified security headers and using PKCE authorisation.',
       tools: ['React', 'Spotify API', 'HTTP headers'],
@@ -45,6 +46,7 @@ export default defineComponent({
       sourceLink: 'jammming'
     },
     {
+      prefix: 'github',
       image: 'dwitter.jpg',
       description: 'A backend for a simple Twitter clone, with API documentation.',
       tools: ['Django', 'REST API'],
@@ -52,6 +54,7 @@ export default defineComponent({
       sourceLink: 'socialnetwork'
     },
     // {
+    //   prefix: 'github',
     //   image: 'jamming.jpg',
     //   description: 'satellite description',
     //   tools: ['CesiumJS'],
@@ -59,6 +62,7 @@ export default defineComponent({
     //   sourceLink: ''
     // },
     {
+      prefix: 'github',
       image: 'stats.jpg',
       description: 'A site visually displaying data created in SQL, with python scripts to facilitate updating through automation.',
       tools: ['Quasar', 'ECharts', 'PostgreSQL', 'Automation'],
