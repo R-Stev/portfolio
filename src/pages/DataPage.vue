@@ -39,7 +39,7 @@
       const dataList = [
       {
         prefix: 'tableau',
-        image: 'tableau1.jpg',
+        image: 'tableau1.png',
         description: 'A replication of the denuvostats Github project made in Tableau.',
         tools: ['Tableau'],
         demoLink: '',
@@ -48,16 +48,32 @@
       {
         prefix: 'kaggle',
         image: 'kaggle.png',
-        description: 'Bikeshare',
-        tools: ['Kaggle'],
+        description: 'Identifies differences in how members and casual users use a bike-share service.',
+        tools: ['Kaggle', 'Data visualisation', 'Data cleaning'],
         demoLink: '',
         sourceLink: 'bikeshare'
       },
       {
+        prefix: 'tableau',
+        image: 'tableau2.png',
+        description: 'A dashboard with various displays for electricity consumption over 1 year.',
+        tools: ['Tableau'],
+        demoLink: '',
+        sourceLink: 'MoroccoElectricity/Dashboard1'
+      },
+      {
         prefix: 'kaggle',
         image: 'kaggle.png',
-        description: 'Salary analysis',
-        tools: ['Kaggle'],
+        description: 'Develops a model for predicting electricity consumption based on time of year.',
+        tools: ['Kaggle', 'Polynomial regression', 'Data cleaning'],
+        demoLink: '',
+        sourceLink: 't-touan-electricity'
+      },
+      {
+        prefix: 'kaggle',
+        image: 'kaggle.png',
+        description: 'Investigates if there are statistically significant differences in salary between various groups, using a 2021 salary survey dataset.',
+        tools: ['Kaggle', 'Tukey\'s test', 'Data cleaning'],
         demoLink: '',
         sourceLink: 'salary-analysis'
       }
